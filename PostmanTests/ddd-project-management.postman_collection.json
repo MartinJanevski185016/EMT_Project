@@ -1,0 +1,582 @@
+{
+	"info": {
+		"_postman_id": "284a5495-7ce4-47fd-af91-554fe29d8114",
+		"name": "ddd-project-management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "project-organization",
+			"item": [
+				{
+					"name": "getAllProjects",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/projects",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getProjectDetails",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/projects/{{projectId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"projects",
+								"{{projectId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addProject",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Project 1\",\r\n    \"description\": \"Description for Project 1\",\r\n    \"currentStatus\": \"ACTIVE\",\r\n    \"startDate\": \"2021-09-01T12:00:00\",\r\n    \"endDate\": \"2021-12-01T12:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/projects/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"projects",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editProject",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Project 1\",\r\n    \"description\": \"Description for Project 1\",\r\n    \"currentStatus\": \"ACTIVE\",\r\n    \"startDate\": \"2021-09-01T12:00:00\",\r\n    \"endDate\": \"2021-12-31T12:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/projects/{{projectId}}/edit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"projects",
+								"{{projectId}}",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteProject",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/projects/{{projectId}}/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"projects",
+								"{{projectId}}",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addProjectStage",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"projectId\": \"{{projectId}}\",\r\n    \"name\": \"Project Stage 1\",\r\n    \"description\": \"Description for Project Stage 1\",\r\n    \"currentStatus\": \"ACTIVE\",\r\n    \"startDate\": \"2021-09-01T12:00:00\",\r\n    \"endDate\": \"2021-10-01T12:00:00\",\r\n    \"teamId\": \"{{teamId}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/projects/{{projectId}}/project-stages/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"projects",
+								"{{projectId}}",
+								"project-stages",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editProjectStage",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"projectId\": \"{{projectId}}\",\r\n    \"name\": \"Project Stage 1\",\r\n    \"description\": \"Description for Project Stage 1\",\r\n    \"currentStatus\": \"ACTIVE\",\r\n    \"startDate\": \"2021-09-01T12:00:00\",\r\n    \"endDate\": \"2021-10-05T12:00:00\",\r\n    \"teamId\": \"{{teamId}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/projects/{{projectId}}/project-stages/{{projectStageId}}/edit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"projects",
+								"{{projectId}}",
+								"project-stages",
+								"{{projectStageId}}",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteProjectStage",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/projects/{{projectId}}/project-stages/{{projectStageId}}/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"projects",
+								"{{projectId}}",
+								"project-stages",
+								"{{projectStageId}}",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addTask",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"projectStageId\": \"{{projectStageId}}\",\r\n    \"name\": \"Task 1 of Project Stage 1\",\r\n    \"description\": \"Description for Task 1 of Project Stage 1\",\r\n    \"currentStatus\": \"ACTIVE\",\r\n    \"startDate\": \"2021-09-01T12:00:00\",\r\n    \"endDate\": \"2021-09-05T12:00:00\",\r\n    \"employeeId\": \"{{employeeId}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/projects/{{projectId}}/project-stages/{{projectStageId}}/tasks/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"projects",
+								"{{projectId}}",
+								"project-stages",
+								"{{projectStageId}}",
+								"tasks",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editTask",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"projectStageId\": \"{{projectStageId}}\",\r\n    \"name\": \"Task 1 of Project Stage 1\",\r\n    \"description\": \"Description for Task 1 of Project Stage 1\",\r\n    \"currentStatus\": \"ACTIVE\",\r\n    \"startDate\": \"2021-09-01T12:00:00\",\r\n    \"endDate\": \"2021-09-06T12:00:00\",\r\n    \"employeeId\": \"{{employeeId}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/projects/{{projectId}}/project-stages/{{projectStageId}}/tasks/{{taskId}}/edit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"projects",
+								"{{projectId}}",
+								"project-stages",
+								"{{projectStageId}}",
+								"tasks",
+								"{{taskId}}",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteTask",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/projects/{{projectId}}/project-stages/{{projectStageId}}/tasks/{{taskId}}/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"projects",
+								"{{projectId}}",
+								"project-stages",
+								"{{projectStageId}}",
+								"tasks",
+								"{{taskId}}",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "team-structuring",
+			"item": [
+				{
+					"name": "getAllTeams",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9091/api/teams",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9091",
+							"path": [
+								"api",
+								"teams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getTeamDetails",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9091/api/teams/{{teamId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9091",
+							"path": [
+								"api",
+								"teams",
+								"{{teamId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addTeam",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Team 1\",\r\n    \"maximumSize\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9091/api/teams/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9091",
+							"path": [
+								"api",
+								"teams",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editTeam",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Team 1\",\r\n    \"maximumSize\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9091/api/teams/{{teamId}}/edit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9091",
+							"path": [
+								"api",
+								"teams",
+								"{{teamId}}",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteTeam",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9091/api/teams/{{teamId}}/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9091",
+							"path": [
+								"api",
+								"teams",
+								"{{teamId}}",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addEmployee",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"teamId\": \"{{teamId}}\",\r\n    \"name\": \"Martin\",\r\n    \"surname\": \"Janevski\",\r\n    \"amountOfSalary\": \"400\",\r\n    \"currencyOfSalary\": \"EUR\",\r\n    \"positionInTeam\": \"BACKEND_DEVELOPER\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9091/api/teams/{{teamId}}/employees/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9091",
+							"path": [
+								"api",
+								"teams",
+								"{{teamId}}",
+								"employees",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editEmployee",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"teamId\": \"{{teamId}}\",\r\n    \"name\": \"Martin\",\r\n    \"surname\": \"Janevski\",\r\n    \"amountOfSalary\": \"450\",\r\n    \"currencyOfSalary\": \"EUR\",\r\n    \"positionInTeam\": \"BACKEND_DEVELOPER\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9091/api/teams/{{teamId}}/employees/{{employeeId}}/edit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9091",
+							"path": [
+								"api",
+								"teams",
+								"{{teamId}}",
+								"employees",
+								"{{employeeId}}",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteEmployee",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9091/api/teams/{{teamId}}/employees/{{employeeId}}/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9091",
+							"path": [
+								"api",
+								"teams",
+								"{{teamId}}",
+								"employees",
+								"{{employeeId}}",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "teamId",
+			"value": ""
+		},
+		{
+			"key": "employeeId",
+			"value": ""
+		},
+		{
+			"key": "projectId",
+			"value": ""
+		},
+		{
+			"key": "projectStageId",
+			"value": ""
+		},
+		{
+			"key": "taskId",
+			"value": ""
+		}
+	]
+}
